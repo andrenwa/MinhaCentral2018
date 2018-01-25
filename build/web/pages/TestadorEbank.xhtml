@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+               template="/template/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="menu">
+        <ui:include src="/includes/menu.xhtml"/>
+    </ui:define>
+
+    <ui:define name="principal">
+<!--        <h:form id="form1">
+            <p:dataTable id="tblFabricantes"
+                         widgetVar="tabelaFabricante"
+                         emptyMessage="Apos o teste as lives seram salvas aqui!"
+                         value="#{MBFabricante.itens}"
+                         var="item"
+                         filteredValue="#{MBFabricante.itensFiltrados}"
+                         paginator="true"
+                         rows="20"
+                         rowsPerPageTemplate="10,20,30,40,50,60,70,80,90,100">  linkando pagina manegben com o xml
+
+                <f:facet name="header">
+                   TESTADOR - EBANX
+                </f:facet> 
+  
+                <p:column headerText="Email" sortBy="#{item.codigo}" filterBy="#{item.codigo}"> 
+                            <h:outputText value="#{item.codigo}" />
+                </p:column>
+
+                <p:column headerText="Senha" sortBy="#{item.descricao}" filterBy="#{item.descricao}">
+                    <h:outputText value="#{item.descricao}" />
+                </p:column>
+
+                    <p:column headerText="Saldo Disponivel" sortBy="#{item.descricao}" filterBy="#{item.descricao}">
+                    <h:outputText value="#{item.descricao}" />
+                </p:column>
+                
+                <p:column headerText="Opcoes">
+                    <p:commandButton icon=".ui-icon-trash"  
+                                     oncomplete="PF('dialogExcluir').show();"
+                                     update=":dialogExcluir :formFabExcluir :">
+                        
+                        <f:setPropertyActionListener target="#{MBFabricante.fabricante}" value="#{iten}" />
+                    </p:commandButton> 
+                    
+                    
+                    
+                    <p:commandButton icon=".ui-icon-pencil"  
+                                     oncomplete="PF('dlgFabEditar').show();"
+                                     update=":formFabEditar:pnlFabEditar">
+                        <f:setPropertyActionListener target="#{MBFabricante.fabricante}" value="#{iten}" />   
+                    </p:commandButton>
+                    
+                    
+                </p:column>
+
+                <f:facet name="footer"  >
+                    <p:commandButton value="Abrir Testador" actionListener="#{MBFabricante.prepararNovo()}"
+                                     oncomplete="PF('novoFabricante').show();"
+                                     update=":form2:pngrid "/> update=":form2.pngrid"
+
+                </f:facet>  
+
+            </p:dataTable>
+        </h:form>
+
+        <p:dialog widgetVar="novoFabricante" 
+                  closable="false" 
+                  draggable="false"
+                  resizable="false"  
+                  modal="true" appendTo="@(body)" 
+                  header="TESTAR LOGINS EBANX">  cabecalho da janela dialog
+
+            <h:form id="form2">
+                <h:panelGrid id="pngrid" columns="2">
+                    <p:outputLabel value="COLOQUE SUA LISTA DE EMAIL COM O SEPARADOR | )" />
+                    
+                     <h3 style="margin-top: 0">testador EBANX</h3>
+                    <p>Teste aqui a sua Lista de email</p>
+                       <p:inputTextarea rows="10" cols="50" completeMethod="#{inputTextareaView.completeArea}" queryDelay="750" minQueryLength="4" />
+                    
+                    
+                    
+                </h:panelGrid>    
+
+                <h:panelGrid columns="2">
+                   <p:commandButton value="Testar" onclick="PF('dlg1').show();" oncomplete="PF('novoFabricante').hide();"/>
+ <p:commandButton value="Cancelar Teste" onclick="PF('novoFabricante').hide();"/>
+                </h:panelGrid>  
+
+            </h:form>
+
+
+        </p:dialog>
+
+        <p:dialog widgetVar="dialogExcluir" closable="false" draggable="false"
+                  resizable="false" modal="true" appendTo="@(body)"
+                  header="Fabricante - Excluir ">
+
+            <h:form id="formFabExcluir">
+                <h:panelGrid id="painelFabricanteExcluir" columns="2">
+                    <h:outputText value="Codigo"/>
+                    <h:outputText value="#{MBFabricante.fabricante.codigo}" />
+                    <h:outputText value="#{MBFabricante.fabricante.descricao}" />
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+                    <p:commandButton value="Excluir" actionListener="#{MBFabricante.excluir()}"
+                                     oncomplete="PF('formFabExcluir').hide(); ;tabelaFabricante.clearFilters();"
+                                     update=":formFabExcluir :msgSistema "/>
+                    <p:commandButton value="Cancelar" onclick="PF('formFabExcluir')" />
+
+                </h:panelGrid>
+
+
+            </h:form>
+
+        </p:dialog>
+
+        <p:dialog widgetVar="dlgFabEditar" 
+                  closable="false" 
+                  draggable="false"
+                  resizable="false" 
+                  appendTo="@(body)"
+                  header="Fabricante - Editar">
+            <h:form id="formFabEditar" >
+
+                <h:panelGrid id="pnlFabEditar" columns="2">
+                    <p:outputLabel value="Codigo"/>
+                    <h:outputText value="#{MBFabricante.fabricante.codigo}"/>
+                    <p:outputLabel value="Descricao"/> 
+                    <p:inputText value="#{MBFabricante.fabricante.descricao}"
+                                 size="30" maxlength="60"/>
+                    
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+                
+                    <p:commandButton value="Editar" actionListener="#{MBFabricante.editar}"
+                                     oncomplete="PF('formFabEditar').hide();tabelaFabricante.clearFilters();"
+                                     update=":formFabEditar:pnlFabEditar msgSistema"/>
+                    <p:commandButton value= "Cancelar"  onclick="PF(formFabEditar).hide();"/>
+                    
+                </h:panelGrid>
+                
+            </h:form>
+
+
+        </p:dialog>
+
+      <p:dialog header="Voce nao esta Logado Meu Jovem!!" widgetVar="dlg1"  modal="true" appendTo="@(body)"  showEffect="explode" hideEffect="bounce" height="100">
+    <h:outputText value="PARA LIBERAR OS CHEKERS ENTRE EM CONTATO NO ZAP 31 984145899" />
+</p:dialog>-->
+
+    </ui:define>
+
+
+</ui:composition>

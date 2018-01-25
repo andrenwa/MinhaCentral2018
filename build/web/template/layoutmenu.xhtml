@@ -1,0 +1,50 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+
+    <h:form>
+        <p:panelMenu style="width:250px"> 
+
+            <p:menuitem value="Facebook" url="https://www.facebook.com/HisenberqueSilvaOriginal" icon="ui-icon-star" />
+
+            <p:menuitem value="inicio" outcome="/index.xhtml" icon="ui-icon-star" />
+
+            <p:submenu label="INFO CC FULL">
+                <p:menuitem value="INFO FULL" outcome="/pages/vendainfoUnidade.xhtml" icon="ui-icon-circle-plus" />
+            </p:submenu>
+
+            <p:submenu label="APROVAÇÕES">
+                <p:menuitem value="Produtos" outcome="/pages/aprovacoes.xhtml" icon="ui-icon-circle-plus" />
+            </p:submenu>
+
+            <p:submenu label="TESTADORES DE LOJAS">
+                <p:menuitem value="Americanas" outcome="/pages/TestadorAmericanas.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="Casas Bahia" outcome="/pages/TestadorCasasBahia.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="Mercado livre" outcome="/pages/TestadorMercadolivre.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="Pagseguro" outcome="/pages/TestadorPagseguro.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="Skril" outcome="/pages/TestadorSkrill.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="Neteller" outcome="/pages/TestadorNeteller.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="Uber" outcome="/pages/TestadorUber.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="Ifood" outcome="/pages/TestadorIfood.xhtml" icon="ui-icon-circle-plus" />
+            </p:submenu>
+
+            <p:submenu label= "TESTADORES INFO GERADA" icon="ui-icon-gear">
+                <p:menuitem value="GATE AMEX" outcome="/pages/infogerada.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="GATE HIPERCARD" outcome="/pages/infogerada.xhtml" icon="uui-icon-circle-plus" />
+                <p:menuitem value="GATE ONE BANK" outcome="/pages/infogerada.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="GATE TODAS BIN BR - ON" outcome="/pages/infogerada.xhtml" icon="ui-icon-circle-plus" />
+            </p:submenu>
+
+            <p:submenu label= "TESTADORES INFO FULL" icon="ui-icon-gear">
+                <p:menuitem value="GATE BR" outcome="/pages/Fabricante.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="GATE BR" outcome="/pages/Fabricante.xhtml" icon="ui-icon-circle-plus" />
+                <p:menuitem value="GATE GRINGO" outcome="/pages/Fabricante.xhtml" icon="ui-icon-circle-plus" />
+            </p:submenu>
+
+        </p:panelMenu>	
+    </h:form>
+
+</ui:composition>

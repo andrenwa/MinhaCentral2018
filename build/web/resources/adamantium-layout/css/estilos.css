@@ -1,0 +1,44 @@
+.ui-layout-north {  
+    z-index:20 !important;
+    overflow:visible !important;;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+    overflow:visible !important;
+}
+
+body {
+    background-color: #FFFFFF;
+}
+
+.ui-widget, .ui-widget .ui-widget {
+font-size: 12px !important;
+}
+
+.rodape{
+    text-align: center;
+   
+}
+
+ .login
+  {
+    position:absolute;
+    left:40%;
+    top:29%;
+    width:288px;
+    height:90px;
+    color: #FFFFFF;
+    background-color: #000000;
+  }
+  
+  fieldset
+  {
+    width:260px;
+    height:70px;
+  }
+  
+  body{
+      width: 400px;
+	height: 300px;
+     background-color: #009183; 
+  }

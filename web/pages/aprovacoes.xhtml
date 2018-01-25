@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/template.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+
+     <ui:define name="principal">
+         <h:form id="form4">
+            <p:commandButton value="Verificar Disponiveis" actionListener="#{MBAprovacoes.listar()}" update=":form4:dtCcfull"/>
+            
+            <p:dataTable widgetVar="dtCcfull" id="dtCcfull" value="#{MBAprovacoes.lista}" var="p" paginator="true" rows="10">
+               
+                <p:column headerText="Produto" filterBy="#{p.produto}">
+                    <p:outputLabel value="#{p.produto}"/>
+                </p:column>
+                
+                <p:column headerText="Quantidade">
+                     <p:outputLabel value="#{p.quantidade}"/>
+                </p:column>
+                    
+                <p:column headerText="Valor">
+                    <p:outputLabel value="#{p.valor}"/>
+                </p:column>
+                
+                <p:column headerText="Prazo Entrega de Login" >
+                     <p:outputLabel value="#{p.prazoDeAprovacao}"/>
+                </p:column>
+                
+                <p:column headerText="Prazo Medio de Entrega">
+                     <p:outputLabel value="#{p.prazoMedioDeEntrega}"/>
+                </p:column>
+             
+            </p:dataTable>
+
+        </h:form>
+    </ui:define>
+        
+
+   
+</ui:composition>
+
